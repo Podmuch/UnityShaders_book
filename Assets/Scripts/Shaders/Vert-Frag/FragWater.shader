@@ -1,4 +1,6 @@
-﻿Shader "PDGames/FragWater"
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+Shader "PDGames/FragWater"
 {
 	Properties
 	{
@@ -50,7 +52,7 @@
 				vertOutput o;
 				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
 				o.uvgrab = ComputeGrabScreenPos(o.vertex);
-				o.worldPos = mul(_Object2World, v.vertex);
+				o.worldPos = mul(unity_ObjectToWorld, v.vertex);
 				o.texcoord = v.texcoord;
 				return o;
 			}
